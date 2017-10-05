@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eec40760-8331-488e-9924-644097b74e36" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MNIST.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/MNIST_ERROR.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MNIST.py" afterPath="$PROJECT_DIR$/MNIST.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -18,16 +16,16 @@
       <file leaf-file-name="MNIST.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/MNIST.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1553">
-              <caret line="189" column="47" lean-forward="true" selection-start-line="189" selection-start-column="47" selection-end-line="189" selection-end-column="47" />
+            <state relative-caret-position="-219">
+              <caret line="158" column="6" lean-forward="true" selection-start-line="158" selection-start-column="6" selection-end-line="158" selection-end-column="6" />
               <folding>
                 <element signature="e#1054#1092#0" expanded="true" />
-                <element signature="e#2053#2201#0" expanded="false" />
-                <element signature="e#2235#2372#0" expanded="false" />
-                <element signature="e#2409#2882#0" expanded="false" />
-                <element signature="e#2969#3958#0" expanded="false" />
-                <element signature="e#4361#4875#0" expanded="false" />
-                <element signature="e#5101#5322#0" expanded="false" />
+                <element signature="e#1905#2053#0" expanded="false" />
+                <element signature="e#2087#2224#0" expanded="false" />
+                <element signature="e#2261#2734#0" expanded="false" />
+                <element signature="e#2821#3810#0" expanded="false" />
+                <element signature="e#4213#4727#0" expanded="false" />
+                <element signature="e#4953#5174#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -129,6 +127,11 @@
               <item name="Tensorboard_for_parameter_optimization" type="b2602c69:ProjectViewProjectNode" />
               <item name="Tensorboard_for_parameter_optimization" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="Tensorboard_for_parameter_optimization" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Tensorboard_for_parameter_optimization" type="462c0819:PsiDirectoryNode" />
+              <item name="tmp" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -222,7 +225,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3292011" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3292011" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39944905" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -279,16 +282,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/MNIST.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1553">
-          <caret line="189" column="47" lean-forward="true" selection-start-line="189" selection-start-column="47" selection-end-line="189" selection-end-column="47" />
+        <state relative-caret-position="-219">
+          <caret line="158" column="6" lean-forward="true" selection-start-line="158" selection-start-column="6" selection-end-line="158" selection-end-column="6" />
           <folding>
             <element signature="e#1054#1092#0" expanded="true" />
-            <element signature="e#2053#2201#0" expanded="false" />
-            <element signature="e#2235#2372#0" expanded="false" />
-            <element signature="e#2409#2882#0" expanded="false" />
-            <element signature="e#2969#3958#0" expanded="false" />
-            <element signature="e#4361#4875#0" expanded="false" />
-            <element signature="e#5101#5322#0" expanded="false" />
+            <element signature="e#1905#2053#0" expanded="false" />
+            <element signature="e#2087#2224#0" expanded="false" />
+            <element signature="e#2261#2734#0" expanded="false" />
+            <element signature="e#2821#3810#0" expanded="false" />
+            <element signature="e#4213#4727#0" expanded="false" />
+            <element signature="e#4953#5174#0" expanded="false" />
           </folding>
         </state>
       </provider>

@@ -33,14 +33,8 @@ from tensorflow.examples.tutorials.mnist import input_data
 FLAGS = None
 
 
-def train(num_hidden,learning_rate,dropout,writer):
+def train(num_hidden,num_steps,learning_rate,dropout,writer,mnist):
   tf.reset_default_graph()
-
-
-  # Import data
-  mnist = input_data.read_data_sets('tmp',
-                                    one_hot=True,
-                                    fake_data=False)
 
   sess = tf.InteractiveSession()
   # Create a multilayer model.
@@ -156,10 +150,8 @@ def train(num_hidden,learning_rate,dropout,writer):
       k = 1.0
     return {x: xs, y_: ys, keep_prob: k}
 
-  print(feed_dict(False))
-
   writer.add_graph(sess.graph)
-  max_steps = 1000
+  max_steps = num_steps
 
 
   for i in range(max_steps):
@@ -182,14 +174,19 @@ def train(num_hidden,learning_rate,dropout,writer):
   sess.close()
 
 def main(_):
+  mnist = input_data.read_data_sets('tmp',
+                                    one_hot=True,
+                                    fake_data=False)
 
   log_dir = "logdir/"
-  learning_rate = .001
-  dropout = .9
-  for num_hidden in [250,500,750]:
-    folder = 'num_hidden_{}'.format(num_hidden)
-    writer = tf.summary.FileWriter(log_dir + folder + '/test')
-    train(num_hidden,learning_rate=learning_rate,dropout = dropout,writer=writer)
+  num_steps = 10
+  for learning_rate in [1E-2,1E-3, 1E-4,1E-5]:
+    for dropout in [.5,.75,.9]:
+      for num_hidden in [250,500,750]:
+        folder = 'num_hidden_{}_learning_rate_{}_dropout_{}'.format(num_hidden,learning_rate,dropout)
+        print(folder)
+        writer = tf.summary.FileWriter(log_dir + folder + '/test')
+        train(num_hidden,num_steps=num_steps,learning_rate=learning_rate,dropout = dropout,writer=writer,mnist = mnist)
 
 
 if __name__ == '__main__':
