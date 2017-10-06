@@ -1,4 +1,4 @@
-# Tensorboard_for_paramater_optimization
+# Tensorboard_for_parameter_optimization
 
 I wanted to practice using tensor board and had just watched this cool demo from the TensorFlow conference (https://youtu.be/eBbEDRsCmv4?t=887).  
 
