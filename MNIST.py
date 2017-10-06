@@ -22,10 +22,8 @@ from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
 
-import argparse
-import os
-import sys
-
+import itertools
+import numpy as np
 import tensorflow as tf
 
 from tensorflow.examples.tutorials.mnist import input_data
@@ -80,28 +78,37 @@ def train(num_hidden,num_steps,learning_rate,dropout,writer,mnist):
     # Adding a name scope ensures logical grouping of the layers in the graph.
     with tf.name_scope(layer_name):
       # This Variable will hold the state of the weights for the layer
-      with tf.name_scope('weights'):
+      with tf.name_scope('weights_{}'.format(layer_name)):
         weights = weight_variable([input_dim, output_dim])
         variable_summaries(weights)
-      with tf.name_scope('biases'):
+      with tf.name_scope('biases_{}'.format(layer_name)):
         biases = bias_variable([output_dim])
         variable_summaries(biases)
-      with tf.name_scope('Wx_plus_b'):
+      with tf.name_scope('Wx_plus_b_{}'.format(layer_name)):
         preactivate = tf.matmul(input_tensor, weights) + biases
         tf.summary.histogram('pre_activations', preactivate)
       activations = act(preactivate, name='activation')
       tf.summary.histogram('activations', activations)
       return activations
 
-  hidden1 = nn_layer(x, 784, num_hidden, 'layer1')
+  def hidden_layers(input, layers):
+    layer = 1
+    nn = nn_layer(input, input.get_shape().as_list()[1], layers[0], 'layer_{}'.format(1))
+    for nodes in layers[1:]:
+      layer += 1
+      if nodes != 0:
+        nn = nn_layer(nn,nn.get_shape().as_list()[1],nodes,'layer_{}'.format(layer))
+    return nn
+
+  nn = hidden_layers(input = x,layers=num_hidden)
 
   with tf.name_scope('dropout'):
     keep_prob = tf.placeholder(tf.float32)
     tf.summary.scalar('dropout_keep_probability', keep_prob)
-    dropped = tf.nn.dropout(hidden1, keep_prob)
+    dropped = tf.nn.dropout(nn, keep_prob)
 
   # Do not apply softmax activation yet, see below.
-  y = nn_layer(dropped, num_hidden, 10, 'layer2', act=tf.identity)
+  y = nn_layer(dropped, nn.get_shape().as_list()[1], 10, 'out_layer', act=tf.identity)
 
   with tf.name_scope('cross_entropy'):
     # The raw formulation of cross-entropy,
@@ -180,13 +187,18 @@ def main(_):
 
   log_dir = "logdir/"
   num_steps = 10
-  for learning_rate in [1E-2,1E-3, 1E-4,1E-5]:
-    for dropout in [.5,.75,.9]:
-      for num_hidden in [250,500,750]:
-        folder = 'num_hidden_{}_learning_rate_{}_dropout_{}'.format(num_hidden,learning_rate,dropout)
+
+  first_layer = [100,500,1000]
+  second_layer = [0,500,750]
+
+  for combo in itertools.product(first_layer,second_layer):
+    layer_structure = np.array(combo)
+    for learning_rate in [1E-2,1E-3, 1E-4,1E-5]:
+      for dropout in [.5,.75,.9]:
+        folder = 'network_{}_learning_rate_{}_dropout_{}'.format(layer_structure,learning_rate,dropout)
         print(folder)
         writer = tf.summary.FileWriter(log_dir + folder + '/test')
-        train(num_hidden,num_steps=num_steps,learning_rate=learning_rate,dropout = dropout,writer=writer,mnist = mnist)
+        train(num_hidden=layer_structure,num_steps=num_steps,learning_rate=learning_rate,dropout = dropout,writer=writer,mnist = mnist)
 
 
 if __name__ == '__main__':
