@@ -186,7 +186,7 @@ def main(_):
                                     fake_data=False)
 
   log_dir = "logdir/"
-  num_steps = 10
+  num_steps = 1000
 
   first_layer = [100,500,1000]
   second_layer = [0,500,750]
